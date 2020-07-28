@@ -1,0 +1,99 @@
+两种数据类型：
+    基本数据类型：
+        String Number Null Undefined Boolean Symbol
+    引用数据类型：
+        Function Object Array Regexp new Date() 
+
+    NULL == undefined  // true
+    null === undefiend //false
+    区别：
+        undefiend：是定义了，没有赋值而已
+        null：完全就是空的（对象）
+
+    typeof:有两种写法，只能判断基本数据类型（null除外） 
+    instanceof:能判断出基本数据类型还是引用数据类型
+
+    万能判断数据类型的方法：
+    Object.prototype.toString.call();
+
+    JS的组成：
+        BOM:浏览器对象模型
+        DOM:文档对象模型
+        ES规范（ECMASCRIPT）:ES5 ES6(babel)
+    JS概念：
+        弱类型的脚本语言，主要在浏览器中与运行
+
+    JS执行：
+
+        JS三种环境（window 块级 eval）、三种上下文、三种作用域
+
+        在主线程上单线程执行，从上到下（一块一块的解析然后执行）
+
+        因为浏览器内核中有JS解析引擎，所以JS可以执行
+
+        注意：
+            浏览器内核：
+                CSS计算引擎
+                UI渲染引擎
+                JS解析引擎
+            UI渲染引擎和JS解析引擎是互斥的
+            css计算引擎必须是同步的：
+        JS有两种对象：
+            VO:变量对象（死对象），此时不能操作
+            AO:活动对象 ，此时可以进行一系列操作
+
+        函数和变量谁先提升？
+            函数先提升、变量才提升
+
+    JS特点：
+        抽象：抽象的一个表现
+        封装：可以将相同的一些代码进行封装，可以复用
+        多肽：灵活的表现，使一个函数具有多种功能
+        继承：子类继承父类的一些方法、属性等等，可以减少代码冗余，提高复用性
+
+    JS构造函数：
+        构造函数的内部执行过程：
+            有四步：
+                1、隐式创建一个空对象
+                2、改变this指向
+                3、赋值
+                4、隐式返回改对象
+        new关键字的内部执行过程：
+            有四步：  
+                1、通过new创建一个空对象
+                2、改变this指向
+                3、把prototype赋值给__proto__
+                4、隐式返回当前对象（实例对象）
+        new关键字触发了构造函数内部执行过程
+
+        原型链查找机制：
+            先从自身查找，一级一级往上查找，找到就返回，
+            找不到，返回undefined，直到查找到原型链的顶端（Objet.prototype === null）
+    构造函数、实例对象、原型对象三者之间的关系：
+        1、先有构造函数，然后才有实例对象
+        2、原型对象存在于构造函数里面
+        3、实例对象是同new实例化而来
+        4、实例对象.__proto__ == 构造函数.prototype
+        5、对象.constructor() == 构造函数
+    
+    __proto__:原型链，浏览器查找机制（通过__proto__查找），给浏览器使用的
+    prototype:原型对象，给开发者使用，写公共方法、属性等，然后可以被继承
+        
+        var obj = {
+            name:function(){}
+        }
+        obj.name();
+
+        <!-- function Animal(type,hair,legs){
+            var obj = {};
+            obj.type = type;
+            return obj; -->
+            <!-- this.type = type;
+            this.hair = hair;
+            this.legs = legs; -->
+        <!-- }
+        new Animal('猴子','yes','four') -->
+
+
+        
+        
