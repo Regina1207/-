@@ -1,0 +1,62 @@
+Node环境中，一个JS文件就是一个模块，因为每一个JS文件都被一个没有名字的隐藏着的函数包裹着
+    
+每个函数中，都有一个arguments对象，又有数组的特点，可循环（有length值）
+arguments：收集实参的一个集合（数组） (1,2,3,4)
+    function demo(a,b,c){
+        console.log(arguments);
+    }
+    demo(1,2,3,4);
+callee:是arguments的一个属性，能返回当前函数的上下文，能找到当前的函数体   demo(a,b,c)
+caller:是函数的属性，可以返回当前函数的外层函数，和arguments没有关系，目前被废弃
+    function demo(a,b,c){
+        console.log(demo.caller.toString());
+    }
+    demo(1,2,3,4);
+name:函数的属性，返回当前的函数名（只读，不可修改）
+箭头函数没有arguments对象，也没有this
+    function demo(a,b,c){
+        console.log(demo.name);
+    }
+    demo(1,2,3,4);
+
+function (exports, require, module, __filename, __dirname) {}
+module:模块
+exports:暴露，导出
+require：获取暴露的那个模块
+
+JS中的模块化：
+    概念：将代码进行分割，一个功能就是一个模块，一个JS文件就是一个模块（一切皆为模块）
+    模块化：
+        CommonJS:Dode环境中用的是CommonJS规范，代表者是NodeJS 
+                1.只能在服务端环境中运行，无法在浏览器中运行，主要在Node环境中运行
+                、
+                2.一切都是同步运行
+                3.按需加载，提高性能
+        AMD:RuquireJS
+        CMD:SeaJS
+        ES6 Module:Es6中新的模块化语法规范
+    优点：
+        1.集中管理
+        2.便于维护，便于调试，版本
+        3.JS文件之间可以互相交互
+        4.极大的避免了环境污染
+        5.对代码测试友好（易于测试）
+        6.可以多人协作开发，互不影响
+        7.模块之间可以自由组合（灵活）
+        8.偏向于工程化
+        9.减少http请求(减轻服务器的压力)
+    缺点：
+        1.解析JS时，执行链比较长，浪费性能
+
+RequireJS:一种搜集依赖（找JS包，找JS库）的正则库，依赖就是各种JS库
+
+
+//自执行函数或者闭包是堆模块化的一种模拟，JS中没有块级作用域，一切的作用域都是模拟出来的
+//自执行函数，自己执行，不用调用，把自己封装起来了，形成了一个闭包
+    (function($){
+        //JQ
+    })(jQuery)
+//zepto专门写移动端的
+    (function($){
+        //zepto
+    })(zepto)

@@ -45,5 +45,3 @@ node版本中：v10.10版本之前setImmediate和timer定时器不一定谁先�
     4.timers
     5.setImmediate
 
-
-
